@@ -29,9 +29,9 @@ export default class QuoteService {
 		_subscribers[prop].push(fn)
 	}
 
-	getWeather() {
+	getQuote() {
 		console.log('Fetching a quote')
-		quoteApi.get().then(res => {
+		_quoteApi.get().then(res => {
 			_setState('quote', new Quote(res.data))
 		})
 	}

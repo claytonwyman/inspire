@@ -14,7 +14,7 @@ function _drawError() {
 
 export default class TodoController {
 	constructor() {
-		_todoService.addSubscriber('todo', _drawTodos)
+		_todoService.addSubscriber('todos', _drawTodos)
 		_todoService.getTodos()
 		// Don't forget to add your subscriber
 	}
