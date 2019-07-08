@@ -3,7 +3,7 @@ import TodoService from "./todo-service.js";
 const _todoService = new TodoService()
 
 function _drawTodos() {
-	//WHAT IS MY PURPOSE?
+	console.log("HERE'S THE TODO LIST", _todoService.Todo)
 }
 
 function _drawError() {
@@ -16,14 +16,16 @@ export default class TodoController {
 	constructor() {
 		_todoService.addSubscriber('todos', _drawTodos)
 		_todoService.getTodos()
-		// Don't forget to add your subscriber
 	}
 
 	addTodo(e) {
 		e.preventDefault()
 		var form = e.target
 		var todo = {
-			// DONT FORGET TO BUILD YOUR TODO OBJECT
+			_id: {type: String, required: true, unique: true},
+    		completed: { type: Boolean, required: true, default: false},
+    		user: { type: String, required: true},
+    		description: { type: String, required: true}
 		}
 
 		_todoService.addTodo(todo)

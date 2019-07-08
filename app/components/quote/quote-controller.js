@@ -7,7 +7,7 @@ function drawQuote() {
 
 	document.getElementById('quote').innerHTML = `
     	<div class="text-center">
-			<p>${_quoteService.Quote.text}</p>
+			<p>"${_quoteService.Quote.text}"</p>
 			<p>${_quoteService.Quote.author}</p>
 		</div>
     `;
