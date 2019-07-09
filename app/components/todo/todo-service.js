@@ -25,6 +25,10 @@ export default class TodoService {
 		return _state.error
 	}
 
+	get Todos() {
+		return _state.todos
+	}
+
 	addSubscriber(prop, fn) {
 		_subscribers[prop].push(fn)
 	}
