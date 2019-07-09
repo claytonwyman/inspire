@@ -4,6 +4,9 @@ const _todoService = new TodoService()
 
 function _drawTodos() {
 	console.log("HERE'S THE TODO LIST", _todoService.Todo)
+	//document.getElementById('todos').innerHTML += `
+    //	<li>${_todoService.Todo.desc} - ${_todoService.Todo.completed}</li>
+    //`;
 }
 
 function _drawError() {

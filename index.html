@@ -19,11 +19,14 @@
 		The Quote
 	</div>
 
-	<div>
+	<div class="text-center">
 		A Todo List
 		<div id="todo-error"></div>
-		<form onsubmit=""></form>
-		<div id="todos"></div>
+		<form onsubmit="app.controllers.todoController.addTodo()">
+			<input type="text" name="todoAdd"><br>
+			<input type="submit" value="Add to List">
+		</form>
+		<ul id="todos"></ul>
 	</div>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
