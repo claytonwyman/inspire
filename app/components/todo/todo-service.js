@@ -39,9 +39,9 @@ export default class TodoService {
 
 	addTodo(todo) {
 		console.log("Adding to the Todo List")
-		todoApi.post('', todo)
+		todoApi.post('', todoAdd)
 			.then(res => {
-				// WHAT DO YOU DO AFTER CREATING A NEW TODO?
+				getTodos()
 			})
 			.catch(err => _setState('error', err.response.data))
 	}

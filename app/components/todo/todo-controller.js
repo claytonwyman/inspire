@@ -3,7 +3,7 @@ import TodoService from "./todo-service.js";
 const _todoService = new TodoService()
 
 function _drawTodos() {
-	console.log("HERE'S THE TODO LIST", _todoService.Todo)
+	console.log("HERE'S THE TODO LIST", _todoService.Todos)
 	//document.getElementById('todos').innerHTML += `
     //	<li>${_todoService.Todo.desc} - ${_todoService.Todo.completed}</li>
     //`;
