@@ -33,7 +33,6 @@ export default class TodoService {
 		console.log("Getting the Todo List")
 		todoApi.get()
 			.then(res => {
-				console.log(res.data)
 				_setState('todos', new Todo(res.data))
 			})
 	}
