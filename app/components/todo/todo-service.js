@@ -2,7 +2,7 @@ import Todo from "../../models/todo.js";
 
 // @ts-ignore
 const todoApi = axios.create({
-	baseURL: 'https://bcw-sandbox.herokuapp.com/api/darryl/todos/',
+	baseURL: 'https://bcw-sandbox.herokuapp.com/api/clayton/todos/',
 	timeout: 3000
 });
 
@@ -37,17 +37,21 @@ export default class TodoService {
 		console.log("Getting the Todo List")
 		todoApi.get()
 			.then(res => {
-				_setState('todos', new Todo(res.data))
+				let serverTodos = res.data.data
+				let todoArray = serverTodos.map(c => new Todo(c))
+				_setState('todos', todoArray)
 			})
+			.catch(err => console.error(err))
 	}
 
 	addTodo(todo) {
 		console.log("Adding to the Todo List")
-		todoApi.post('', todoAdd)
+		todoApi.post('', todo)
 			.then(res => {
-				getTodos()
+				console.log("success post")
+				this.getTodos()
 			})
-			.catch(err => _setState('error', err.response.data))
+			.catch(err => console.error(err))
 	}
 
 	toggleTodoStatus(todoId) {

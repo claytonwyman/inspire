@@ -22,7 +22,7 @@
 	<div class="text-center">
 		A Todo List
 		<div id="todo-error"></div>
-		<form onsubmit="app.controllers.todoController.addTodo()">
+		<form onsubmit="app.controllers.todoController.addTodo(event)">
 			<input type="text" name="todoAdd"><br>
 			<input type="submit" value="Add to List">
 		</form>

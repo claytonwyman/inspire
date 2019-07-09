@@ -4,9 +4,12 @@ const _todoService = new TodoService()
 
 function _drawTodos() {
 	console.log("HERE'S THE TODO LIST", _todoService.Todos)
-	document.getElementById('todos').innerHTML += `
-    	<li>${_todoService.Todos.desc} - ${_todoService.Todos.completed}</li>
-    `;
+	
+	let template = ''
+	_todoService.Todos.forEach(Todo => {
+    	template += Todo.Template
+  	})
+	document.getElementById('todos').innerHTML = template;
 }
 
 function _drawError() {
@@ -25,10 +28,8 @@ export default class TodoController {
 		e.preventDefault()
 		var form = e.target
 		var todo = {
-			_id: {type: String, required: true, unique: true},
-    		completed: { type: Boolean, required: true, default: false},
-    		user: { type: String, required: true},
-    		description: { type: String, required: true}
+    		completed: false,
+    		description: form.todoAdd.value
 		}
 
 		_todoService.addTodo(todo)
